@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<div class= "container">
+    <h2>Register As:</h2>
+    <div class="tab" >
+        <div style="text-align : center">
+          <button class="tablinks" onclick="openCity(event, 'represent')">Representative</button>
+          <button class="tablinks" onclick="openCity(event, 'citizen')">Citizen</button>
+        </div>
+    </div>
+    <div id="represent" class="tabcontent">
+        <form action = "/rregister" method = "post" id="rregister">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control form-control1" name="username" placeholder="Username" type="text"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control form-control1" name="password" placeholder="Password" type="password"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control form-control1" name="confirmation" placeholder="Password (again)" type="password"/>
+            </div>
+            <button class="btn btn-primary" type="submit">Register</button>
+        </form>
+    </div>
+    <div id="citizen" class="tabcontent">
+        <form action="/cregister" method="post" id = "cregister">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control form-control1" name="username" placeholder="Username" type="text"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control form-control1" name="password" placeholder="Password" type="password"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control form-control1" name="confirmation" placeholder="Password (again)" type="password"/>
+            </div>
+            <button class="btn btn-primary" type="submit">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

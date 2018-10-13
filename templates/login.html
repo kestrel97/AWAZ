@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <h2>Log In As:</h2>
+    <div class="tab" >
+        <div style="text-align : center">
+          <button class="tablinks" onclick="openCity(event, 'represent')">Representative</button>
+          <button class="tablinks" onclick="openCity(event, 'citizen')">Citizen</button>
+        </div>
+    </div>
+
+    <div id="represent" class="tabcontent" >
+
+        <form action="/rlogin" method="post" id ="rlogin" >
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control form-control1" name="username" placeholder="Username" type="text"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control form-control1" name="password" placeholder="Password" type="password"/>
+            </div>
+            <button class="btn btn-primary" type="submit">Log In</button>
+        </form>
+    </div>
+    <div id="citizen" class="tabcontent">
+
+        <form action="/clogin" method="post" id="clogin">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control form-control1" name="username" placeholder="Username" type="text"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control form-control1" name="password" placeholder="Password" type="password"/>
+            </div>
+            <button class="btn btn-primary" type="submit">Log In</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

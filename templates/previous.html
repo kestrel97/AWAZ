@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Complaints History
+{% endblock %}
+
+{% block main %}
+<h2>History</h2>
+<div class="panel-group" id="accordion">
+{% for row in rows %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#{{row.id}}">
+        {% if row.notice == 1 %}
+            {% if row.resolve == 1 %}
+              <p>Regarding constituency NA: {{ row.na }}, PA: {{ row.pa }} On {{ row.time }} <span class="badge badge-info">Resolved</span></p></a>
+            {% else %}
+              <p>Regarding constituency NA: {{ row.na }}, PA: {{ row.pa }} On {{ row.time }} <span class="badge badge-success">notice taken</span></p></a>
+            {% endif %}
+
+        {% else %}
+            {% if row.resolve == 1 %}
+              <p>Regarding constituency NA: {{ row.na }}, PA: {{ row.pa }} On {{ row.time }} <span class="badge badge-info">Resolved</span></p></a>
+            {% else %}
+              <p>Regarding constituency NA: {{ row.na }}, PA: {{ row.pa }} On {{ row.time }} <span class="badge badge-danger">pending</span></p></a>
+            {% endif %}
+        {% endif %}
+      </h5>
+    </div>
+    <div id="{{row.id}}" class="panel-collapse collapse in">
+      <div class="panel-body">{{ row.complaint }} <br/>
+        <button class="btn btn-info" style="float: right" onclick="callResolve({{ row.id }})">Mark Resolved</button>
+      </div><br/>
+      <hr />
+    </div>
+  </div>
+{% endfor %}
+</div>
+<div class="home"><a href="/cindex"> <i class="fa fa-home"></i> Go to Home</a></div>
+{% endblock %}

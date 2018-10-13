@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Complaints
+{% endblock %}
+
+{% block main %}
+<h2>All Complaints</h2>
+<div class="panel-group" id="accordion">
+  {% if rows is defined and rows[0] is defined %}
+
+  {% else %}
+    <div>
+      <img src="/static/happy.jpg" alt="happy face" width="500" height="333">
+      <p>people of your constituency must be proud of you! (or they don't have internet connection!)</p>
+    </div>
+  {% endif %}
+
+  {% for row in rows %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h5 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#{{row.id}}">
+          {% if row.notice == 1 %}
+            <p>{{ row.name }} submitted a compalaint On {{ row.time }} <span class="badge badge-success">notice taken</span></p></a>
+          {% else %}
+            <p>{{ row.name }} submitted a compalaint On {{ row.time }} <span class="badge badge-danger">pending</span></p></a>
+          {% endif %}
+        </h5>
+      </div>
+      <div id="{{row.id}}" class="panel-collapse collapse in">
+        <div class="panel-body">{{ row.complaint }} <br/>
+        <button class="btn btn-info" style="float: right" onclick="callfunc({{ row.id }})">Take Notice</button></div><br/>
+        <hr />
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<div class="home"><a href="/rindex"> <i class="fa fa-home"></i> Go to Home</a></div>
+
+{% endblock %}

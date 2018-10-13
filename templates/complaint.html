@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+{% block main %}
+
+<div class="home"><a href="/cindex"> <i class="fa fa-home"></i> Go to Home</a></div>
+
+<div class="container">
+    <div style="text-align:center">
+
+        <div class="col-xs-12">
+            <h2>File Your Complaint</h2>
+            <small>Let your chosen representatives know the problems of your locality. Help them make this city a better place.</small>
+            <hr >
+        </div>
+        <div class="col-xs-12 col-sm-9 col-xl-12">
+            <h4 class="col-xm-12">Your Information</h4>
+            <p style="padding:5px;"></p>
+            <form action="/complaint" method ="post">
+                <div class="form-group">
+                    <label for="firstname" class="col-sm-2  control-label">Full Name</label>
+                    <div class="col-sm-10 col-xl-12">
+                        <input type="text" required class="form-control" id="firstname" name="name" placeholder="Enter First Name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailid" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10 col-xl-12">
+                        <input type="email" class="form-control" id="emailid" name="email" placeholder="Email">
+                    </div>
+                </div>
+                <p style="padding:5px;"></p>
+                <h4 class="col-xm-12">Complaint Information</h4>
+                <div class="form-group">
+                    <label for="na" class="col-sm-2 control-label">National Assmbly Jusrisdiction(NA)</label>
+                    <div class="col-sm-10 col-xl-12">
+                        <input type="number" required min ="236" max="256" class="form-control" id="na" name="na" placeholder="(236-256)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pa" class="col-sm-2 control-label">Provincial Assmbly Jusrisdiction(PA)</label>
+                    <div class="col-sm-10 col-xl-12">
+                        <input type="number" required min ="87" max="130" class="form-control" id="pa" name="pa" placeholder="(87-130)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback" class="col-sm-2 control-label">Your Complaint</label>
+                    <div class="col-sm-10 col-xl-12">
+                        <textarea class="form-control" required id="feedback" name="complaint" rows="12" placeholder="Enter your query here with the location details, be brief, exact and avoid using abusive language."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10 col-xl-12">
+                      <button type="submit" class="btn btn-primary">Send Complaint</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <p style="padding:20px;"></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
