@@ -1,5 +1,5 @@
-# finalProjectCS50
-### AWAZ
+# AWAZ
+### finalProjectCS50
 
 Bridged the gap between people and governments with a highly anticipated platform for a democratic country.
 Designed a web platform for citizens to file and track complaints to MNA/MPA of specific jurisdiction.
